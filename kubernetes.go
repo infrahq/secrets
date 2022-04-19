@@ -23,7 +23,7 @@ type KubernetesSecretProvider struct {
 }
 
 type KubernetesConfig struct {
-	Namespace string `mapstructure:"namespace"`
+	Namespace string
 }
 
 func NewKubernetesConfig() KubernetesConfig {
