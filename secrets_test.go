@@ -21,7 +21,7 @@ import (
 	"k8s.io/client-go/rest"
 	"k8s.io/client-go/tools/clientcmd"
 
-	"github.com/infrahq/infra/testutil/docker"
+	"github.com/infrahq/secrets/testutil/docker"
 )
 
 func TestMain(m *testing.M) {
