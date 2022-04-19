@@ -14,19 +14,19 @@ var (
 
 var AlgorithmAESGCM = "aesgcm"
 
-func NewNativeSecretProvider(storage SecretStorage) *NativeSecretProvider {
-	return &NativeSecretProvider{
+func NewNativeKeyProvider(storage SecretStorage) *NativeKeyProvider {
+	return &NativeKeyProvider{
 		SecretStorage: storage,
 	}
 }
 
-var _ SymmetricKeyProvider = &NativeSecretProvider{}
+var _ SymmetricKeyProvider = &NativeKeyProvider{}
 
-type NativeSecretProvider struct {
+type NativeKeyProvider struct {
 	SecretStorage SecretStorage
 }
 
-func (n *NativeSecretProvider) GenerateDataKey(rootKeyID string) (*SymmetricKey, error) {
+func (n *NativeKeyProvider) GenerateDataKey(rootKeyID string) (*SymmetricKey, error) {
 	if rootKeyID == "" {
 		rootKeyID = infraRootKeyID
 	}
@@ -73,7 +73,7 @@ func (n *NativeSecretProvider) GenerateDataKey(rootKeyID string) (*SymmetricKey,
 	}, nil
 }
 
-func (n *NativeSecretProvider) DecryptDataKey(rootKeyID string, keyData []byte) (*SymmetricKey, error) {
+func (n *NativeKeyProvider) DecryptDataKey(rootKeyID string, keyData []byte) (*SymmetricKey, error) {
 	if rootKeyID == "" {
 		rootKeyID = infraRootKeyID
 	}

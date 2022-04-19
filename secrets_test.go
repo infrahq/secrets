@@ -181,7 +181,7 @@ func eachProvider(t *testing.T, eachFunc func(t *testing.T, p interface{})) {
 	providers["kubernetes"] = k8s
 
 	// add native; depends on k8s secret storage
-	n := NewNativeSecretProvider(k8s)
+	n := NewNativeKeyProvider(k8s)
 
 	providers["native"] = n
 
@@ -330,7 +330,7 @@ func TestGeneratingASecondKeyFromARootKey(t *testing.T) {
 }
 
 func TestSealSize(t *testing.T) {
-	p := NewNativeSecretProvider(NewFileSecretProviderFromConfig(FileConfig{
+	p := NewNativeKeyProvider(NewFileSecretProviderFromConfig(FileConfig{
 		Path: os.TempDir(),
 	}))
 
