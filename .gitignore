@@ -1,0 +1,5 @@
+# test secrets
+foo/bar:secret
+foo2/bar
+foo2/bar2
+foo3/bar:secret
