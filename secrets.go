@@ -280,7 +280,7 @@ func checksum(b []byte) ([]byte, error) {
 func unmarshalPayload(mp []byte, p *encryptedPayload) error {
 	b := bytes.NewBuffer(mp)
 
-	var ln int32
+	var ln uint32
 	if err := binary.Read(b, binary.BigEndian, &ln); err != nil {
 		return err
 	}
